@@ -15,7 +15,7 @@ module RailsSettings
           if RailsSettings.can_protect_attributes?
             setting_objects.detect { |s| s.var == var.to_s } || setting_objects.build({ :var => var.to_s }, :without_protection => true)
           else
-            setting_objects.detect { |s| s.var == var.to_s } || setting_objects.build(:var => var.to_s, :target => self)
+            setting_objects.detect { |s| s.var == var.to_s } || setting_objects.build(:var => var.to_s, :target => self, :value => {})
           end
         end
 
